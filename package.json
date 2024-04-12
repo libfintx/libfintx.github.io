@@ -12,8 +12,8 @@
     "url": "https://github.com/libfintx/libfintx"
   },
   "scripts": {
-    "dev": "vuepress dev src",
-    "build": "vuepress build src"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "license": "LGPL-3.0",
   "devDependencies": {
