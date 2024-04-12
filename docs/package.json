@@ -1,0 +1,29 @@
+{
+  "name": "libfintx",
+  "version": "0.0.1",
+  "description": "A C# based banking client library for HBCI, FinTS and EBICS.",
+  "main": "index.js",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/libfintx/libfintx"
+  },
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "@vuepress/plugin-blog": "^1.9.4",
+    "@vuepress/theme-blog": "^2.3.3",
+    "vuepress": "^1.5.3",
+    "vuepress-plugin-container": "^2.1.5"
+  },
+  "dependencies": {
+    "@vuepress/plugin-google-analytics": "^1.9.10",
+    "@vuepress/theme-default": "^1.9.10"
+  }
+}
