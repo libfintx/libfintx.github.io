@@ -1,7 +1,7 @@
 {
   "name": "libfintx",
   "version": "0.0.1",
-  "description": "A C# based banking client library for HBCI, FinTS and EBICS.",
+  "description": "A .NET banking client library for HBCI, FinTS and EBICS.",
   "main": "index.js",
   "authors": {
     "name": "",

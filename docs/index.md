@@ -1,7 +1,7 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: a C# based banking client library for FinTS/HBCI and EBICS.
+heroImage: assets/img/logo.png
+tagline: a .NET banking client library
 features:
 - title: FinTS/HBCI
   details: Supports FinTS 3.0 and HBCI 2.2
