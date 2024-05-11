@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sample code (EBICS) | libfintx</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    
+    <meta name="description" content="A .NET banking client library for HBCI, FinTS and EBICS.">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <link rel="preload" href="/assets/css/0.styles.dcd9de7f.css" as="style"><link rel="preload" href="/assets/js/app.6ccd8ae1.js" as="script"><link rel="preload" href="/assets/js/2.44c7fc6a.js" as="script"><link rel="preload" href="/assets/js/1.36235fd3.js" as="script"><link rel="preload" href="/assets/js/23.b58786be.js" as="script"><link rel="prefetch" href="/assets/js/10.4c4356be.js"><link rel="prefetch" href="/assets/js/11.0775a0f9.js"><link rel="prefetch" href="/assets/js/12.08416c55.js"><link rel="prefetch" href="/assets/js/13.13737385.js"><link rel="prefetch" href="/assets/js/14.250323bb.js"><link rel="prefetch" href="/assets/js/15.7a7022cd.js"><link rel="prefetch" href="/assets/js/16.aa0ac0fb.js"><link rel="prefetch" href="/assets/js/17.fed2e8f6.js"><link rel="prefetch" href="/assets/js/18.c5e831bb.js"><link rel="prefetch" href="/assets/js/19.5d0bc134.js"><link rel="prefetch" href="/assets/js/20.1c682798.js"><link rel="prefetch" href="/assets/js/21.d4627448.js"><link rel="prefetch" href="/assets/js/22.d90b802b.js"><link rel="prefetch" href="/assets/js/24.cb93753e.js"><link rel="prefetch" href="/assets/js/25.49de318e.js"><link rel="prefetch" href="/assets/js/26.cdcd3f58.js"><link rel="prefetch" href="/assets/js/27.28903acd.js"><link rel="prefetch" href="/assets/js/3.b252dc0c.js"><link rel="prefetch" href="/assets/js/4.0248f1c6.js"><link rel="prefetch" href="/assets/js/5.b290b9f9.js"><link rel="prefetch" href="/assets/js/6.1dd3af68.js"><link rel="prefetch" href="/assets/js/7.8850a23c.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.bdc2fb18.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dcd9de7f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">libfintx</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/features/" class="nav-link">
+  Features
+</a></div><div class="nav-item"><a href="/docs/" class="nav-link router-link-active">
+  Docs
+</a></div><div class="nav-item"><a href="/package/" class="nav-link">
+  Download
+</a></div> <a href="https://github.com/libfintx/libfintx" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/features/" class="nav-link">
+  Features
+</a></div><div class="nav-item"><a href="/docs/" class="nav-link router-link-active">
+  Docs
+</a></div><div class="nav-item"><a href="/package/" class="nav-link">
+  Download
+</a></div> <a href="https://github.com/libfintx/libfintx" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="sample-code-ebics"><a href="#sample-code-ebics" class="header-anchor">#</a> Sample code (EBICS)</h1> <h2 id="initialization-ini-hia"><a href="#initialization-ini-hia" class="header-anchor">#</a> Initialization (INI/HIA)</h2> <p>The first thing you want to do as a new EBICS user is to announce your public RSA keys to your bank. You need to create three public/private key pairs for this (authentication, signature and encryption keys).</p> <p>Creating the keys is easy with BouncyCastle.</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token class-name"><span class="token keyword">var</span></span> gen <span class="token operator">=</span> GeneratorUtilities<span class="token punctuation">.</span><span class="token function">GetKeyPairGenerator</span><span class="token punctuation">(</span><span class="token string">&quot;RSA&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+gen<span class="token punctuation">.</span><span class="token function">Init</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">KeyGenerationParameters</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">SecureRandom</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">4096</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> signKeyPair <span class="token operator">=</span> gen<span class="token punctuation">.</span><span class="token function">GenerateKeyPair</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+
+<span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token class-name">TextWriter</span> sw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">StreamWriter</span><span class="token punctuation">(</span><span class="token string">&quot;sign.key&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> pw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">PemWriter</span><span class="token punctuation">(</span>sw<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    pw<span class="token punctuation">.</span><span class="token function">WriteObject</span><span class="token punctuation">(</span>signKeyPair<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    sw<span class="token punctuation">.</span><span class="token function">Flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Adjust the above code and also create an authentication (&quot;auth.key&quot;) and encryption (&quot;enc.key&quot;) key.</p> <p>Announce your public signature key to your bank. Note that the previously generated keys are stored in PEM format and contain the private and public key.</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token class-name">AsymmetricCipherKeyPair</span> signKey<span class="token punctuation">;</span>
+
+<span class="token keyword">using</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">var</span></span> sr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">StringReader</span><span class="token punctuation">(</span>File<span class="token punctuation">.</span><span class="token function">ReadAllText</span><span class="token punctuation">(</span><span class="token string">&quot;sign.key&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token class-name"><span class="token keyword">var</span></span> pr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">PemReader</span><span class="token punctuation">(</span>sr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    signKey <span class="token operator">=</span> pr<span class="token punctuation">.</span><span class="token function">ReadObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> signCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>signKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> client <span class="token operator">=</span> EbicsClient<span class="token punctuation">.</span><span class="token function">Factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">EbicsConfig</span>
+<span class="token punctuation">{</span>
+    Address <span class="token operator">=</span> <span class="token string">&quot;The EBICS URL you got from your bank, i.e. https://ebics-server.com/&quot;</span><span class="token punctuation">,</span>
+    Insecure <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    TLS <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    User <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">UserParams</span>
+    <span class="token punctuation">{</span>
+        HostId <span class="token operator">=</span> <span class="token string">&quot;The host ID of your bank&quot;</span><span class="token punctuation">,</span>
+        PartnerId <span class="token operator">=</span> <span class="token string">&quot;Your partner ID you got from your bank&quot;</span><span class="token punctuation">,</span>
+        UserId <span class="token operator">=</span> <span class="token string">&quot;Your user ID you got from your bank&quot;</span><span class="token punctuation">,</span>
+        SignKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">SignKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> SignVersion<span class="token punctuation">.</span>A005<span class="token punctuation">,</span> <span class="token comment">// only A005 is supported right now</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> signCert <span class="token comment">// internally we work with keys</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> resp <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">INI</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">IniParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>After that we need to announce the public authentication and encryption keys.</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token comment">// loading of keys &quot;auth.key&quot; and &quot;enc.key&quot; omitted</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> authCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>authKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> encCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>encKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> client <span class="token operator">=</span> EbicsClient<span class="token punctuation">.</span><span class="token function">Factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">EbicsConfig</span>
+<span class="token punctuation">{</span>
+    Address <span class="token operator">=</span> <span class="token string">&quot;The EBICS URL you got from your bank, i.e. https://ebics-server.com/&quot;</span><span class="token punctuation">,</span>
+    Insecure <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    TLS <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    User <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">UserParams</span>
+    <span class="token punctuation">{</span>
+        HostId <span class="token operator">=</span> <span class="token string">&quot;The host ID of your bank&quot;</span><span class="token punctuation">,</span>
+        PartnerId <span class="token operator">=</span> <span class="token string">&quot;Your partner ID&quot;</span><span class="token punctuation">,</span>
+        UserId <span class="token operator">=</span> <span class="token string">&quot;Your user ID&quot;</span><span class="token punctuation">,</span>
+        AuthKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">AuthKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> AuthVersion<span class="token punctuation">.</span>X002<span class="token punctuation">,</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> authCert
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        CryptKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CryptKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> CryptVersion<span class="token punctuation">.</span>E002<span class="token punctuation">,</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> encCert
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> resp <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">HIA</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">HiaParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>Announcing the keys is not enough, as the bank needs to be sure that the keys really belong to you. To prove this, you need to send the INI and HIA letters to your bank. They contain hash values of your public keys and your written signature. The EBICS specification describes in detail how these letters should look like.</p> <h2 id="retrieving-public-bank-keys-hpb"><a href="#retrieving-public-bank-keys-hpb" class="header-anchor">#</a> Retrieving public bank keys (HPB)</h2> <p>In order to communicate via EBICS with the bank you need the bank's public keys, because data exchanged needs to be encrypted and authenticated.</p> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token comment">// loading of keys &quot;auth.key&quot; and &quot;enc.key&quot; omitted</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> authCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>authKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> encCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>encKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> client <span class="token operator">=</span> EbicsClient<span class="token punctuation">.</span><span class="token function">Factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">EbicsConfig</span>
+<span class="token punctuation">{</span>
+    Address <span class="token operator">=</span> <span class="token string">&quot;The EBICS URL you got from your bank, i.e. https://ebics-server.com/&quot;</span><span class="token punctuation">,</span>
+    Insecure <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    TLS <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    User <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">UserParams</span>
+    <span class="token punctuation">{</span>
+        HostId <span class="token operator">=</span> <span class="token string">&quot;The host ID of your bank&quot;</span><span class="token punctuation">,</span>
+        PartnerId <span class="token operator">=</span> <span class="token string">&quot;Your partner ID&quot;</span><span class="token punctuation">,</span>
+        UserId <span class="token operator">=</span> <span class="token string">&quot;Your user ID&quot;</span><span class="token punctuation">,</span>
+        AuthKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">AuthKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> AuthVersion<span class="token punctuation">.</span>X002<span class="token punctuation">,</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> authCert
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        CryptKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CryptKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> CryptVersion<span class="token punctuation">.</span>E002<span class="token punctuation">,</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> encCert
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> hpbResp <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">HPB</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">HpbParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>hpbResp<span class="token punctuation">.</span>TechnicalReturnCode <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">||</span> hpbResp<span class="token punctuation">.</span>BusinessReturnCode <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// handle error</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+c<span class="token punctuation">.</span>Config<span class="token punctuation">.</span>Bank <span class="token operator">=</span> resp<span class="token punctuation">.</span>Bank<span class="token punctuation">;</span> <span class="token comment">// set bank's public keys</span>
+
+<span class="token comment">// now issue other commands </span>
+</code></pre></div><h2 id="direct-credit-transfer-cct"><a href="#direct-credit-transfer-cct" class="header-anchor">#</a> Direct credit transfer (CCT)</h2> <div class="language-csharp extra-class"><pre class="language-csharp"><code><span class="token comment">// loading of keys &quot;auth.key&quot;, &quot;enc.key&quot; and &quot;sign.key&quot; omitted</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> authCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>authKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> encCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>encKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> signCert <span class="token operator">=</span> KeyUtils<span class="token punctuation">.</span><span class="token function">CreateX509Certificate2</span><span class="token punctuation">(</span>signKey<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> client <span class="token operator">=</span> EbicsClient<span class="token punctuation">.</span><span class="token function">Factory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">EbicsConfig</span>
+<span class="token punctuation">{</span>
+    Address <span class="token operator">=</span> <span class="token string">&quot;The EBICS URL you got from your bank, i.e. https://ebics-server.com/&quot;</span><span class="token punctuation">,</span>
+    Insecure <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    TLS <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    User <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">UserParams</span>
+    <span class="token punctuation">{</span>
+        HostId <span class="token operator">=</span> <span class="token string">&quot;The host ID of your bank&quot;</span><span class="token punctuation">,</span>
+        PartnerId <span class="token operator">=</span> <span class="token string">&quot;Your partner ID&quot;</span><span class="token punctuation">,</span>
+        UserId <span class="token operator">=</span> <span class="token string">&quot;Your user ID&quot;</span><span class="token punctuation">,</span>
+        AuthKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">AuthKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> AuthVersion<span class="token punctuation">.</span>X002<span class="token punctuation">,</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> authCert
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        CryptKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CryptKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> CryptVersion<span class="token punctuation">.</span>E002<span class="token punctuation">,</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> encCert
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        SignKeys <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">SignKeyPair</span>
+        <span class="token punctuation">{</span>
+            Version <span class="token operator">=</span> SignVersion<span class="token punctuation">.</span>A005<span class="token punctuation">,</span>
+            TimeStamp <span class="token operator">=</span> DateTime<span class="token punctuation">.</span>Now<span class="token punctuation">,</span>
+            Certificate <span class="token operator">=</span> signCert
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> hpbResp <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">HPB</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token constructor-invocation class-name">HpbParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>hpbResp<span class="token punctuation">.</span>TechnicalReturnCode <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">||</span> hpbResp<span class="token punctuation">.</span>BusinessReturnCode <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// handle error</span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+c<span class="token punctuation">.</span>Config<span class="token punctuation">.</span>Bank <span class="token operator">=</span> resp<span class="token punctuation">.</span>Bank<span class="token punctuation">;</span> <span class="token comment">// set bank's public keys</span>
+
+<span class="token comment">// create credit transfer data structure</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> cctParams <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CctParams</span>
+<span class="token punctuation">{</span>
+    InitiatingParty <span class="token operator">=</span> <span class="token string">&quot;Your name&quot;</span><span class="token punctuation">,</span>
+    PaymentInfos <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CreditTransferPaymentInfo</span>
+        <span class="token punctuation">{</span>
+            DebtorName <span class="token operator">=</span> <span class="token string">&quot;Sender's name&quot;</span><span class="token punctuation">,</span>
+            DebtorAccount <span class="token operator">=</span> <span class="token string">&quot;Sender's IBAN&quot;</span><span class="token punctuation">,</span>
+            DebtorAgent <span class="token operator">=</span> <span class="token string">&quot;Sender's BIC&quot;</span><span class="token punctuation">,</span>
+            ExecutionDate <span class="token operator">=</span> <span class="token string">&quot;2018-05-15&quot;</span><span class="token punctuation">,</span>
+            CreditTransferTransactionInfos <span class="token operator">=</span> <span class="token keyword">new</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CreditTransferTransactionInfo</span>
+                <span class="token punctuation">{</span>
+                    Amount <span class="token operator">=</span> <span class="token string">&quot;1.00&quot;</span><span class="token punctuation">,</span>
+                    CreditorName <span class="token operator">=</span> <span class="token string">&quot;Receiver's name&quot;</span><span class="token punctuation">,</span>
+                    CreditorAccount <span class="token operator">=</span> <span class="token string">&quot;Receiver's IBAN&quot;</span><span class="token punctuation">,</span>
+                    CreditorAgent <span class="token operator">=</span> <span class="token string">&quot;Receiver's BIC&quot;</span><span class="token punctuation">,</span>
+                    CurrencyCode <span class="token operator">=</span> <span class="token string">&quot;EUR&quot;</span><span class="token punctuation">,</span>
+                    EndToEndId <span class="token operator">=</span> <span class="token string">&quot;something&quot;</span><span class="token punctuation">,</span>
+                    RemittanceInfo <span class="token operator">=</span> <span class="token string">&quot;Unstructured information for receiver&quot;</span><span class="token punctuation">,</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token class-name"><span class="token keyword">var</span></span> cctResp <span class="token operator">=</span> c<span class="token punctuation">.</span><span class="token function">CCT</span><span class="token punctuation">(</span>cctParams<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/libfintx/libfintx.github.io/edit/main/docs/docs/sample-ebics.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6ccd8ae1.js" defer></script><script src="/assets/js/2.44c7fc6a.js" defer></script><script src="/assets/js/1.36235fd3.js" defer></script><script src="/assets/js/23.b58786be.js" defer></script>
+  </body>
+</html>
