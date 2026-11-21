@@ -1,23 +1,44 @@
 name: Build and Deploy
 
+# Builds the site on every pull request and push to main.
+# Only a push to main deploys it to the gh-pages branch, which GitHub Pages serves.
 on:
   push:
     branches:
       - main
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@v4
 
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: npm
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build site
+      run: npm run build
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: libfintx/libfintx.github.io
-        TARGET_BRANCH: gh-pages
-        BUILD_SCRIPT: yarn && yarn build
-        BUILD_DIR: docs/.vuepress/dist
-        #CNAME: https://www.xxx.com
+        # VuePress 1 uses webpack 4, which needs the legacy OpenSSL provider on Node 17 and later
+        NODE_OPTIONS: --openssl-legacy-provider
+
+    - name: Deploy to gh-pages
+      if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: docs/.vuepress/dist
