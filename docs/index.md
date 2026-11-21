@@ -4,12 +4,12 @@ heroImage: assets/img/logo.png
 tagline: a .NET banking client library
 features:
 - title: FinTS/HBCI
-  details: Supports FinTS 3.0 and HBCI 2.2
+  details: Supports FinTS 3.0 and HBCI 2.2, with decoupled approval in the banking app, camt statements and securities holdings
 - title: EBICS
-  details: Support EBICS version H004 and H005
+  details: Supports EBICS versions H004 and H005
 - title: File processing
-  details: Support processing of MT940 and Camt052/053 files
-footer: © 2016 - 2024 Torsten Klinger - GNU LESSER GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+  details: Supports MT940, MT535 and camt.052/053 files and SEPA pain messages. Runs on .NET 6, 8 and 10
+footer: © 2016 - 2026 Torsten Klinger - GNU LESSER GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 ---
 <!--
 actionText: Download →

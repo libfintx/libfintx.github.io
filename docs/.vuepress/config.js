@@ -78,7 +78,7 @@ module.exports = {
       ],
       copyright: [
         {
-          text: 'LGPL-3.0 licensed | Copyright © 2016-2024 Torsten Klinger'
+          text: 'LGPL-3.0 licensed | Copyright © 2016-2026 Torsten Klinger'
         }
       ]
     }
