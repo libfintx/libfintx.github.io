@@ -19,10 +19,16 @@ The following NuGet packages are part of the libfintx library:
 | ----------------------------------------------------------------------------- | ------------------------------------------------------ |
 | [libfintx.Sepa](https://www.nuget.org/packages/libfintx.Sepa)                 | Holds functions to handle the SEPA standard.           |
 | [libfintx.Security](https://www.nuget.org/packages/libfintx.Security)         | Holds functions to handle security aspects e.g. encryption. |
-| [libfintx.Swift](https://www.nuget.org/packages/libfintx.Swift)               | Holds functions to handle the SWIFT standard.          |
+| [libfintx.Swift](https://www.nuget.org/packages/libfintx.Swift)               | Holds functions to handle the SWIFT standard (MT940, MT535). |
 | [libfintx.Globals](https://www.nuget.org/packages/libfintx.Globals)           | Helper library holding global configuration parameters |
 | [libfintx.Logger](https://www.nuget.org/packages/libfintx.Logger)             | Helper library for handling of logging                 |
 | [libfintx.EBICSConfig](https://www.nuget.org/packages/libfintx.EBICSConfig)   | Helper library for libfintx.EBICS                      |
 | [libfintx.StatePrinter](https://www.nuget.org/packages/libfintx.StatePrinter) | Helper library for libfintx.EBICS                      |
 | [libfintx.Xsd](https://www.nuget.org/packages/libfintx.Xsd)                   | Helper library for libfintx.EBICS                      |
 | [libfintx.Xml](https://www.nuget.org/packages/libfintx.Xml)                   | Helper library for libfintx.EBICS                      |
+
+<br />
+
+## Changes
+
+All packages share one version. See the [changelog](https://github.com/libfintx/libfintx/blob/main/CHANGELOG.md) and the [releases](https://github.com/libfintx/libfintx/releases) for what changed in each version.
